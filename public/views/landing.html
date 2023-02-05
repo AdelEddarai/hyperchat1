@@ -3,6 +3,18 @@
 
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M8X3RXXSV4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-M8X3RXXSV4');
+</script>
+
 
   
 
@@ -307,58 +319,62 @@
                 </h2>
               </div>
               
-              <div class="contact__content">
-                <h3 class="contact__title contact__title-form">Write Me your Message</h3>
+              <!--Contact  form-->
+              
+                <div class="contact__content">
+                <h3 class="contact__title contact__title-form">Please Send a feedback</h3>
 
-                <form action="" class="contact__form">
+                <form onsubmit="sendMail(); reset(); return false;" action="" class="contact__form">
                   <div class="contact__form-div">
                     <label for="" class="contact__form-tag">Name</label>
-                    <input type="text" placeholder="Enter name" class="contact__form-input">
+                    <input type="text" placeholder="Enter name" class="contact__form-input" id="name">
                   </div>
 
                   <div class="contact__form-div">
                     <label for="" class="contact__form-tag">Mail</label>
-                    <input type="text" placeholder="Enter email" class="contact__form-input">
+                    <input type="text" placeholder="Enter email" class="contact__form-input" id="email">
                   </div>
 
                   <div class="contact__form-div contact__form-area">
                     <label for="" class="contact__form-tag">Message</label>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Write your Message"
+                    <textarea name="" id="messages" cols="30" rows="10" placeholder="Write your Message"
                       class="contact__form-input "></textarea>
                   </div>
                 </form>
 
               </div>
-              
-              <div class="center-content">
-                <a class="button button-primary button-wide-mobile br-6 pulse btn-hover" style="
+          
+      
+              <div class="reveal-from-bottom" data-reveal-delay="450">
+                <a class="button button-primary button-wide-mobile br-6 pulse btn-hover" 
+                type="submit" 
+                onclick="sendMail()" 
+                style="
                       border: 0;
                       background-image: linear-gradient(to right, #03001e, #7303c0, #ec38bc);
                     ">Send</a>
               </div>
-              
-              <!-- smtp.js-->
-              <script src="https://smtpjs.com/v3/smtp.js">
-              </script>
-              <script>
-                function sendMail(){
-                  Email.send({
-                    SecureToken : "dc268774-abf9-4a55-87a2-757f300e35db",
-                    To : 'adeleddarai29@gmail.com',
-                    From : "adeleddarai29@gmail.com",
-                    Subject : "This is the subject",
-                    Body : "Name: " + document.getElementById("name").value
-                          + "<br> Email: " + document.getElementById("email").value
-                          + "<br> Message: " + document.getElementById("messages").value
-                          
-                }).then(
-                  message => alert("message sent succesfully")
-                );
 
-                }
-              </script>
-              
-            </div>
+            <!-- smtp.js-->
+            <script src="https://smtpjs.com/v3/smtp.js">
+            </script>
+            <script>
+              function sendMail(){
+                Email.send({
+                  SecureToken : "dc268774-abf9-4a55-87a2-757f300e35db",
+                  To : 'adeleddarai29@gmail.com',
+                  From : "adeleddarai29@gmail.com",
+                  Subject : "This is the subject",
+                  Body : "Name: " + document.getElementById("name").value
+                        + "<br> Email: " + document.getElementById("email").value
+                        + "<br> Message: " + document.getElementById("messages").value
+                        
+              }).then(
+                message => alert("message sent succesfully")
+              );
+
+              }
+            </script>
           </div>
         </div>
       </section>
